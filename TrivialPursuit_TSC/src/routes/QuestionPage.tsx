@@ -15,7 +15,7 @@ function QuestionPage() {
 
   const question = useAppSelector((state) => state.questions.questions);
   const [currentQuestion, setCurrentQuestion] = useState<Question>();
-
+  console.log(currentQuestion);
   useEffect(() => {
     if (question.length === 0) {
       navigate("/");
@@ -44,10 +44,10 @@ function QuestionPage() {
         <div className="question">
           <h3 dangerouslySetInnerHTML={{ __html: currentQuestion.question }} />
           {question &&
-            currentQuestion.all_answers.map((option, index) => (
+            currentQuestion.all_answers.map((option) => (
               <button
                 className="choice"
-                key={index}
+                key={currentQuestion.question}
                 dangerouslySetInnerHTML={{ __html: option }}
                 onClick={() => handleAnswer(option)}
               />
