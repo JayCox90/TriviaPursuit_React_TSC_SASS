@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { giveAnswer } from "../store/slices/questionSlice";
@@ -23,6 +23,7 @@ function QuestionPage() {
     if (question && id) {
       setCurrentQuestion(question[parseInt(id) - 1]);
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [question, id]);
 
@@ -38,19 +39,14 @@ function QuestionPage() {
     }
   };
   return (
-    <div>
-      <h1>Question number: {id}</h1>
-      <ul>Todo:
-        <li>styling</li>
-        <li>breadcrumbs</li>
-      </ul>
-
+    <div className="questionPage">
       {currentQuestion && (
-        <div>
-          <h2 dangerouslySetInnerHTML={{ __html: currentQuestion.question }} />
+        <div className="question">
+          <h3 dangerouslySetInnerHTML={{ __html: currentQuestion.question }} />
           {question &&
             currentQuestion.all_answers.map((option, index) => (
               <button
+                className="choice"
                 key={index}
                 dangerouslySetInnerHTML={{ __html: option }}
                 onClick={() => handleAnswer(option)}

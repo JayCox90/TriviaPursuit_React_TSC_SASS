@@ -1,4 +1,3 @@
-import React from "react";
 import Question from "../models/question";
 
 interface ResultAnswerProp {
@@ -6,20 +5,42 @@ interface ResultAnswerProp {
 }
 
 function ResultAnswerComponent({ questionProp }: ResultAnswerProp) {
-  console.log(questionProp.answer_given);
+  const correct = questionProp.answer_given === questionProp.correct_answer;
+
   return (
     <div className="ResultComponent">
-      <p dangerouslySetInnerHTML={{ __html: questionProp.question }} />
-      <p dangerouslySetInnerHTML={{ __html: questionProp.correct_answer }} />
-      <span>
-        <p>Answer given:</p>
-        <p dangerouslySetInnerHTML={{ __html: questionProp.answer_given }} />
-        {questionProp.correct_answer === questionProp.answer_given ? (
-          <p>Correct!</p>
-        ) : (
-          <p>Incorrect!</p>
-        )}
-      </span>
+      <p
+        className="question"
+        dangerouslySetInnerHTML={{ __html: questionProp.question }}
+      />
+
+      {correct ? (
+        <div className="correctAnswerSection">
+          <p>Your Guess: </p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: questionProp.correct_answer,
+            }}
+          />
+        </div>
+      ) : (
+        <div className="incorrectAnswerSection">
+          <div className="correctionAnswer">
+            <p>Correct Answer:</p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: questionProp.correct_answer,
+              }}
+            />
+          </div>
+          <div className="incorrectAnswer">
+            <p>Your guess:</p>
+            <p
+              dangerouslySetInnerHTML={{ __html: questionProp.answer_given }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

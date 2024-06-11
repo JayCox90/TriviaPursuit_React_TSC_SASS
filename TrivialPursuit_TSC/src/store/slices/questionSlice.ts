@@ -3,13 +3,11 @@ import Question from "../../models/question";
 
 export interface QuestionState {
   questions: Question[];
-  answers: string[];
   correctAnswers: boolean[];
 }
 
 const initialState: QuestionState = {
   questions: [],
-  answers: [],
   correctAnswers: [],
 };
 
@@ -30,8 +28,6 @@ export const QuestionSlice = createSlice({
       state.questions = questions;
     },
     giveAnswer: (state, action: PayloadAction<string>) => {
-      console.log("payload in giveAnswer:");
-      console.log(action.payload);
       const index = state.correctAnswers.length;
       if (state.questions[index].correct_answer === action.payload) {
         state.correctAnswers.push(true);
@@ -40,8 +36,13 @@ export const QuestionSlice = createSlice({
       }
       state.questions[index].answer_given = action.payload;
     },
+    resetQuestions: (state) => {
+      state.questions = [];
+      state.correctAnswers = [];
+    },
   },
 });
 
-export const { loadQuestions, giveAnswer } = QuestionSlice.actions;
+export const { loadQuestions, giveAnswer, resetQuestions } =
+  QuestionSlice.actions;
 export default QuestionSlice.reducer;

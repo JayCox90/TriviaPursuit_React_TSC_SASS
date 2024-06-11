@@ -1,0 +1,73 @@
+.ResultsPage {
+  @include flexCenter(column);
+  margin-top: 1rem;
+
+  h3 {
+    // border: 5px solid green;
+    font-size: 1.5rem;
+  }
+
+  .correctAmount {
+    padding: 1rem;
+    min-width: 10vw;
+    border-radius: 1rem;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border: 1px solid $primary-color;
+    font-size: 1.25rem;
+    background-color: rgb(73, 73, 73);
+    color: white;
+  }
+}
+
+.ResultComponent {
+  margin-bottom: 1vh;
+  @include flexCenter(column);
+  .question {
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    background-color: #efefef;
+    margin-bottom: 5px;
+  }
+  .correctAnswerSection {
+    display: flex;
+    padding: 1rem;
+    background-color: $correct-color;
+    color: $correct-text-color;
+    border-radius: 5px;
+    position: relative;
+    bottom: 10px;
+    width: 90%;
+    p {
+      margin-right: 1rem;
+    }
+  }
+  .incorrectAnswerSection {
+    @include flexCenter(column);
+    width: 100%;
+
+    position: relative;
+    bottom: 10px;
+    p {
+      margin-right: 1rem;
+    }
+    .incorrectAnswer {
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      width: 90%;
+      padding: 1rem;
+      display: flex;
+      background-color: $incorrect-color;
+      color: $incorrect-text-color;
+    }
+    .correctionAnswer {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      padding: 1rem;
+      width: 90%;
+      display: flex;
+      background-color: $correction-color;
+      color: $correct-text-color;
+    }
+  }
+}

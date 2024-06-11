@@ -1,0 +1,36 @@
+.header {
+  @include flexCenter(row);
+  min-height: 10vh;
+  color: $secondary-color;
+  font-size: $default-font-size;
+}
+
+.mainSection {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: $secondary-color;
+  height: 80vh;
+  overflow-y: auto;
+}
+
+.footer {
+  min-height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  h2 {
+    font-size: 1.5rem;
+  }
+  .linkButton {
+    font-size: 1.5rem;
+    color: $primary-color;
+    padding: 1rem;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 25px;
+    background-color: $secondary-color;
+    font-weight: 300;
+  }
+}

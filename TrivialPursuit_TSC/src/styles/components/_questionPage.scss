@@ -1,0 +1,48 @@
+.questionPage {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  .question {
+    text-align: center;
+    // width: 50%;
+    margin-inline: auto;
+    // min-width: 50%;
+    .return {
+      @include flexCenter(row);
+      a {
+        @extend .choice;
+        display: flex;
+        margin-top: 50px;
+      }
+    }
+
+    h3 {
+      margin: 20px 0;
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .choice {
+      border-top: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: $primary-color;
+      transition: box-shadow 0.2s, $primary-color 0.2s;
+      padding: 1.25rem 2rem;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 300;
+      color: white;
+      width: 85%;
+      transition-duration: 100ms;
+      cursor: pointer;
+    }
+
+    .choice:hover {
+      background-color: $accent-color;
+      color: $text-color;
+    }
+  }
+}
