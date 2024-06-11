@@ -46,7 +46,7 @@ function QuestionPage() {
             currentQuestion.all_answers.map((option) => (
               <button
                 className="choice"
-                key={currentQuestion.question}
+                key={option}
                 dangerouslySetInnerHTML={{ __html: option }}
                 onClick={() => handleAnswer(option)}
               />
