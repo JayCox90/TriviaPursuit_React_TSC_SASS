@@ -15,7 +15,6 @@ function QuestionPage() {
 
   const question = useAppSelector((state) => state.questions.questions);
   const [currentQuestion, setCurrentQuestion] = useState<Question>();
-  console.log(currentQuestion);
   useEffect(() => {
     if (question.length === 0) {
       navigate("/");
